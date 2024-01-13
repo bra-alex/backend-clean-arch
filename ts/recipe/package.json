@@ -2,10 +2,10 @@
   "name": "recipestest",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "build/server.js",
   "scripts": {
     "test": "jest",
-    "watch": "nodemon server.js"
+    "watch": "nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",
