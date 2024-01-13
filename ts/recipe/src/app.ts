@@ -23,3 +23,5 @@ app.use('/', (_req, res) => {
 //     error: error.message,
 //   })
 // })
+
+export default app

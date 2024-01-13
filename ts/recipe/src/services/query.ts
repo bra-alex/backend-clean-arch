@@ -1,4 +1,7 @@
-export default function getRecipe(query: { name?: any }) {
+import { FilterQuery } from 'mongoose'
+import recipes from '../model/recipes.mongo'
+
+export default function getRecipe(query: FilterQuery<typeof recipes>) {
   if (Object.keys(query).length === 0) {
     return {}
   }
