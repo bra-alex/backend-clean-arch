@@ -2,7 +2,7 @@ import axios from 'axios'
 import recipes from './recipes.mongo'
 import { FilterQuery } from 'mongoose'
 
-const DEAULT_ID = 0
+const DEAULT_ID = 132
 
 const options = {
   method: 'GET',
@@ -37,7 +37,7 @@ async function getRandomRecipe() {
   )
 }
 
-async function hasEmbeddedRecipes(obj: Map<String, any>) {
+async function hasEmbeddedRecipes(obj: any) {
   let id
   let name
   let image
@@ -46,7 +46,7 @@ async function hasEmbeddedRecipes(obj: Map<String, any>) {
   let instructions = []
   let ingredients = []
 
-  for (const recipe of obj.get('recipes')) {
+  for (const recipe of obj.recipes) {
     id = (await getLastId()) + 1
     name = recipe.name
     image = recipe.thumbnail_url
@@ -98,20 +98,20 @@ async function hasEmbeddedRecipes(obj: Map<String, any>) {
   }
 }
 
-async function hasRecipes(obj: Map<String, any>) {
+async function hasRecipes(obj: any) {
   let id = (await getLastId()) + 1
-  let name = obj.get('name')
-  let image = obj.get('thumbnail_url')
-  let servings = obj.get('yields')
-  let timeTaken = obj.get('total_time_minutes') ? `${obj.get('total_time_minutes')} minutes` : 'N/A'
+  let name = obj.name
+  let image = obj.thumbnail_url
+  let servings = obj.yields
+  let timeTaken = obj.total_time_minutes ? `${obj.total_time_minutes} minutes` : 'N/A'
   let instructions = []
   let ingredients = []
 
-  for (const instruction of obj.get('instructions')) {
+  for (const instruction of obj.instructions) {
     instructions.push(instruction.display_text)
   }
 
-  for (const section of obj.get('sections')) {
+  for (const section of obj.sections) {
     const sectionTitle = section.name
     const ingredient = []
 
@@ -190,7 +190,7 @@ async function recipeExists(filter: FilterQuery<typeof recipes>) {
   return await recipes.findOne(filter)
 }
 async function saveRecipe(recipe: FilterQuery<typeof recipes>) {
-  return await recipes.findOneAndUpdate({ name: recipe.get('name') }, recipe, { upsert: true })
+  return await recipes.findOneAndUpdate({ name: recipe.name }, recipe, { upsert: true })
 }
 
 export { getRecipes, fetchRecipes, getRandomRecipe }

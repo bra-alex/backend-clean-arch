@@ -7,4 +7,4 @@ const recipeRouter = express.Router()
 recipeRouter.get('/', httpsGetRecipes)
 recipeRouter.get('/random', httpsGetRandomRecipe)
 
-module.exports = recipeRouter
+export default recipeRouter
