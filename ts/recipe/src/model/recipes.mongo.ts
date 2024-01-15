@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import RecipeEntity from '../entities/RecipeEntity'
 
 const recipeSchema = new mongoose.Schema({
   id: {
@@ -35,6 +36,6 @@ const recipeSchema = new mongoose.Schema({
   },
 })
 
-const recipes = mongoose.model('Recipe', recipeSchema)
+const recipes = mongoose.model<RecipeEntity>('Recipe', recipeSchema)
 
 export default recipes

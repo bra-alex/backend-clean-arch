@@ -2,7 +2,7 @@ import axios from 'axios'
 import recipes from './recipes.mongo'
 import { FilterQuery } from 'mongoose'
 
-const DEAULT_ID = 132
+const DEAULT_ID = 0
 
 const options = {
   method: 'GET',
