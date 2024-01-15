@@ -1,6 +1,6 @@
 export default class Recipe {
   constructor(
-    public readonly id: string,
+    public readonly id: number,
     public readonly name: string,
     public readonly image: string,
     public readonly servings: string,
