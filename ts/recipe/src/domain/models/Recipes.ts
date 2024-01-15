@@ -1,4 +1,4 @@
-export default class RecipeEntity {
+export default class Recipe {
   constructor(
     public readonly id: string,
     public readonly name: string,

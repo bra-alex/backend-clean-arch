@@ -3,14 +3,13 @@ import express from 'express'
 
 const app = express()
 
-// import recipeRouter from './routes/recipes.route'
-import recipesRouter from './routes/recipes.routes'
+import recipeRouter from './infrastructure/express/routes/recipes.route'
 
 app.use(helmet())
 
 app.use(express.json())
 
-app.use('/recipes', recipesRouter)
+app.use('/recipes', recipeRouter)
 app.use('/', (_req, res) => {
   res.redirect('/recipes')
 })

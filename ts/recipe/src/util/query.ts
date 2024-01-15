@@ -1,7 +1,7 @@
 import { FilterQuery } from 'mongoose'
-import recipes from '../model/recipes.mongo'
+import RecipeModel from '../infrastructure/database/mongo/models/RecipeModel'
 
-export default function getRecipe(query: FilterQuery<typeof recipes>) {
+export default function getRecipe(query: FilterQuery<typeof RecipeModel>) {
   if (Object.keys(query).length === 0) {
     return {}
   }

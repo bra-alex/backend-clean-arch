@@ -5,7 +5,7 @@ require('dotenv').config()
 
 import app from './app'
 
-import { connectMongo } from './services/mongo'
+import { connectMongo } from './infrastructure/database'
 // import { fetchRecipes } from './model/recipes.model'
 
 const PORT = process.env.PORT

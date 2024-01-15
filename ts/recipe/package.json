@@ -5,7 +5,8 @@
   "main": "build/server.js",
   "scripts": {
     "test": "jest",
-    "watch": "nodemon src/server.ts"
+    "watch": "nodemon src/server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
